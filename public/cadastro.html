@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExplêndidoMar</title>
+  <link rel="shortcut icon" href="./Assets/imagens/Telacheia.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/styleCadastro.css">
+  <link href='https://fonts.googleapis.com/css?family=Aboreto' rel='stylesheet'>
+
+  <script src="./js/sessao.js"></script>
+
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <div class="header">
+    <div class="container">
+      <h1 class="titulo">Explêndido Mar</h1>
+      <ul class="navbar">
+        <a href="./index.html">
+          <li>Inicial</li>
+        </a>
+        <a href="./Curiosidades.html">
+          <li>Curiosidades</li>
+        </a>
+        <li>|</li>
+        <a href="login.html">
+          <li>Login</li>
+        </a>
+        <a href="./cadastro.html">
+          <li>Cadastro</li>
+        </a>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="container">
+      <left>
+        <h2>Bem vindo!</h2>
+        <h5><b>Nome:</b> <br> <input class="input" type="text" placeholder="Seu nome completo" id="input_nome"> <br>
+        </h5>
+        <p></p>
+        <h5><b>E-mail:</b> <br> <input class="input" type="text" placeholder="meuemail@provedor.com" id="input_email">
+          <br></h5>
+        <p></p>
+        <h5><b>Senha:</b> <br> <input class="input" type="password" placeholder="******" id="input_senha1"> <br></h5>
+        <p></p>
+        <h5><b>Confirmação da senha:</b> <br> <input class="input" type="password" placeholder="******"
+            id="input_senha2"> <br></h5>
+      </left>
+      <div class="erro" id="mensagem_erro"></div>
+      <button class="button" onclick="Cadastro()"><b>Cadastrar</b></button>
+      <div class="buttonLogin">
+        <a href="./login.html"><b>Já tem cadastro? Faça login<b> </a>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+</body>
+
+</html>
+<script>
+  function Cadastro() {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha1.value;
+    var confirmacaoSenhaVar = input_senha2.value;
+
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar.length < 8 ||
+      confirmacaoSenhaVar == "" 
+    ) {
+      // cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        `Insira informações em todos os campos para prosseguirmos com o cadastro: <br>
+        Lembrando que seu e-mail precisa ter um @ e sua senha deve ter no minímo 8 dígitos`;
+
+      return false;
+    } else {
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        setTimeout(() => {
+          window.location = "login.html";
+        }, "2000");
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+
+</script>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExplêndidoMar</title>
+    <link rel="shortcut icon" href="./Assets/imagens/Telacheia.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/styleLogin.css">
+    <link href='https://fonts.googleapis.com/css?family=Aboreto' rel='stylesheet'>
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <div class="header">
+        <div class="container">
+            <h1 class="titulo">Explêndido Mar</h1>
+            <ul class="navbar">
+                <a href="./index.html">
+                    <li>Inicial</li>
+                </a>
+                <a href="./Curiosidades.html">
+                    <li>Curiosidades</li>
+                </a>
+                <li>|</li>
+                <a href="login.html">
+                    <li>Login</li>
+                </a>
+                <a href="./cadastro.html">
+                    <li>Cadastro</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <div class="banner">
+        <div class="container">
+            <h2>Faça seu login!</h2>
+            <left>
+                <p></p>
+                <h5><b>E-mail:</b> <br> <input class="input" type="text" placeholder="meuemail@provedor.com"
+                        id="input_email"> <br></h5>
+                <p></p>
+                <h5><b>Senha:</b> <br> <input class="input" type="password" placeholder="******" id="input_senha"> <br>
+                </h5>
+                <p>
+            </left>
+            <div class="erro" id="mensagem_erro"></div>
+            <p>
+            <button class="button" onclick="Login()"><b>Login</b></button>
+      
+    <div class="buttonCadastro">
+        <a href="./cadastro.html"><b>Não tem cadastro? Faça aqui!<b> </a>
+    </div>
+  </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function Login() {
+
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            // cardErro.style.display = "block"
+            mensagem_erro.innerHTML = `Insira informações em todos os campos!`;
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.PONTUACAO = JSON.stringify(json.PontuacaoQuiz)
+                    // aqui esta adicionando na var do site
+                    setTimeout(function () {
+                        window.location = "Quiz.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>

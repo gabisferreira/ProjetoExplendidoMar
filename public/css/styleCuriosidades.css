@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Aboreto';font-size: 22px;
+    background-color: #1A1D53;
+}
+/* Cabeçalho da página começa aqui*/
+.titulo {
+    color: #FF6F66;
+    width: fit-content;
+    font-weight: 500;
+}
+
+.navbar {
+width: 500px;
+color: #E0E4E7;
+list-style: none;
+display: flex ;
+justify-content: space-between ;
+align-items: center;
+}
+
+.navbar a{
+    color: #E0E4E7;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #0A8282;
+}
+
+.header {
+    border-bottom: 3px solid #FF6F66;
+    justify-content: space-around;
+    display: flex;
+}
+/* Parte de cima termina aqui */
+
+.container {
+width: 80%;
+margin: auto;
+display: flex;
+flex-direction: column;
+}
+
+.header .container {
+justify-content: space-between;
+}
+.banner {
+    background-repeat: no-repeat;
+    height: 1900px;
+    background-color: #E0E4E7;
+}
+.banner .container {
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 1200px;
+}
+.banner .container p{
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.parallax {
+    width: 100%;
+    height: 60vh;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px -300px 200px -28px inset;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50%, 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: 110%;
+    animation-name:  contMainAnimation ;
+    animation-duration: 30s;
+    animation-fill-mode:forwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.parallax.one {
+    background-image: url('../Assets/imagens/Tartarugas.jpg');
+}
+.tituloParallax {
+        font-weight: 500;
+        font-style: normal;
+        font-size: 80px;
+        color: white;
+        text-align: center;
+}
+
+/* Curiosidades termina aqui */
+    .Segundocontainer {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .Segundoheader .Segundocontainer {
+    justify-content: space-between;
+    }
+    .Segundobanner {
+        height: 2900px;
+        background-color: #FF6F66;
+    }
+    .Segundobanner .Segundocontainer {
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        width: 1200px;
+    }
+    .Segundobanner .Segundocontainer p{
+        font-size: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .parallax2 {
+        width: 100%;
+        height: 80vh;
+        box-shadow: rgba(0, 0, 0, 0.8) 0px -300px 200px -28px inset;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: 50%, 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-size: 110%;
+        animation-name:  contMainAnimation ;
+        animation-duration: 30s;
+        animation-fill-mode:forwards;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+    .parallax2.one {
+        background-image: url('../Assets/imagens/Mar2.webp');
+    }
+    .tituloParallax2 {
+            font-weight: 500;
+            font-style: normal;
+            font-size: 100px;
+            color: white;
+    }
+    /* Segunda dica termina aqui */
+
+/* Rodapé da página */
+
+.footer {
+    background-color: #1A1D53;
+    color: white;
+}
+.footer .container {
+    justify-content: center;
+    text-align: center;
+}

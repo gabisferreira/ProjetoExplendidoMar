@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Aboreto';font-size: 22px;
+    background-color: #1A1D53;
+}
+
+.titulo {
+    color: #FF6F66;
+    width: fit-content;
+    font-weight: 500;
+}
+
+.navbar {
+width: 500px;
+color: #E0E4E7;
+list-style: none;
+display: flex ;
+justify-content: space-between ;
+align-items: center;
+}
+
+.navbar a{
+    color: #E0E4E7;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #0A8282;
+}
+
+.header {
+border-bottom: 3px solid #FF6F66;
+}
+
+.parallax {
+    width: 100%;
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 1%, 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation-name:  contMainAnimation;
+    animation-duration: 30s;
+    animation-fill-mode:forwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.parallax.one {
+    background-image: url('../Assets/imagens/Telacheia2222.png');
+    width: 1000px;
+    height: 520px;
+}
+.tituloParallax {
+        font-weight: 500;
+        font-style: normal;
+        font-size: 80px;
+        color: white;
+        text-align: center;
+}
+
+.container {
+width: 80%;
+margin: auto;
+display: flex;
+}
+
+.header .container {
+justify-content: space-between;
+}
+
+.banner {
+    background-color: #FF6F66;
+}
+.banner .container {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.banner .container p{
+    font-size: 50px;
+    width: 600px;
+    height: 500px;    
+}
+
+.button {
+    position: absolute;
+    top: 60%; 
+    left: 76%;
+    width: 250px;
+    height: 60px;
+    background-color: #FF6F66;
+    border-radius: 30px;
+    border: solid 5px #FF6F66;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    
+    .button a{
+        color: white;
+        text-decoration: none;
+        font-size: 30px;
+    }
+    
+    .button a:hover {
+        color: #0A8282;
+    }
+
+    .texto {
+        position: absolute;
+        top: 25%; 
+        left: 69%;
+        color: white;
+        text-align: center;
+    }
+   
+/* Social */
+.social {
+background-color: #E0E4E7;
+height: 600px;
+}
+.social .container {
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+}
+.social .container .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.social .container .box img{
+    width: 100px;
+}
+.social .container .box p {
+    width: 378px;
+}
+.informações {
+    /* background-image: url("../Assets/imagens/Mar.jpg"); */
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 700px;
+    text-align: center;
+}
+.informações .container {
+    font-size: 20px;
+    background-color: #E0E4E7;
+    width: 650px;
+    height: 570px;
+    flex-direction: column;
+    display: flex;
+}
+.parallax2 {
+    width: 100%;
+    height: 91vh;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px -300px 200px -28px inset;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50%, 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: 110%;
+    animation-name:  contMainAnimation ;
+    animation-duration: 30s;
+    animation-fill-mode:forwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.parallax2.one {
+    background-image: url("../Assets/imagens/Mar.jpg");
+}
+.tituloParallax2 {
+        font-weight: 500;
+        font-style: normal;
+        font-size: 100px;
+        color: white;
+}
+/* Rodapé da página */
+
+.footer {
+    background-color: #FF6F66;
+    color: white;
+}
+.footer .container {
+    justify-content: center;
+    text-align: center;
+}

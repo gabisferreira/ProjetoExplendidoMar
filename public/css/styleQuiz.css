@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Aboreto'; font-size: 22px;
+    background-color: #1A1D53;
+    background-size: cover;
+}
+/* Cabeçalho da página começa aqui*/
+.titulo {
+    color: #FF6F66;
+    width: fit-content;
+    font-weight: 500;
+}
+
+.navbar {
+width: 500px;
+color: #E0E4E7;
+list-style: none;
+display: flex ;
+justify-content: space-between;
+align-items: center;
+}
+
+.navbar a{
+    color: #E0E4E7;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #0A8282;
+}
+
+.header {
+    border-bottom: 3px solid #FF6F66;
+    justify-content: space-around;
+    display: flex;
+}
+.banner {
+    background-image: url("../Assets/imagens/mergulhador-na-agua-do-mar.jpg");
+    /* background: linear-gradient(to right, #FF6F66, white, #FF6F66); */
+    background-size: cover;
+    height: 800px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.texto {
+    color: white;
+    position: absolute;
+    top: 15%; 
+    /* left: 35%; */
+    /* color: white; */
+    text-align: center;
+}
+.quiz-container {
+    position: absolute;
+    top: 40%; 
+    left: 35%;
+    background-color: rgba(255, 255, 255, 0.573);
+    border-radius: 10px;
+    box-shadow: #1A1D53;
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+    font-size: 18px;
+    
+    /* align-items: center;
+    justify-content: center;
+    justify-items: center;  */
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-family: 'Aboreto';
+    font-size: 16px;
+    background-color: #FF6F66;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-items: center;
+}
+
+button:hover {
+    /* background-color: #1A1D53; */
+    background: linear-gradient(to right, #1A1D53, #FF6F66);
+}
+
+.feedback {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.btn-cadastro{
+   margin: 0 auto;  
+    
+}

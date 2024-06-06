@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./Assets/imagens/Telacheia.png" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Aboreto' rel='stylesheet'>
+    <title>Explêndido mar</title>
+    <link rel="stylesheet" href="./css/styleQuiz.css">
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <div class="header">
+        <h1 class="titulo">Explêndido Mar</h1>
+        <ul class="navbar">
+            <a href="./index.html">
+                <li>Inicial</li>
+            </a>
+            <a href="./Curiosidades.html">
+                <li>Curiosidades</li>
+            </a>
+            <a href="./dashboard.html">
+                <li>dashboard</li>
+            </a>
+            <div onclick="limparSessao()">
+                <li>Sair</li>
+        </ul>
+    </div>
+    </div>
+    </div>
+    <div class="banner">
+        <div class="texto">
+            <h1>Bem vindo ao quiz de curioso!</h1>
+            <p>
+            <h6> Acerte mais que 3 perguntas e ganhe um cupom que aumenta com a quantidade de acertos!</h6>
+            </p>
+        </div>
+        <div class="quiz-container">
+            <div class="question">
+                <h2 id="texto-pergunta"></h2>
+            </div>
+            <div class="opcoes" id="container-opcoes">
+                <!-- As opções de resposta serão adicionadas dinamicamente aqui -->
+            </div>
+            <div class="feedback" id="texto-feedback"></div>
+            <div id="cupons"></div>
+            <button id="btn-proxima" onclick="proximaPergunta()" disabled>Próxima Pergunta</button>
+            <br>
+            <button id="btn-cadastro" class="btn-cadastro"onclick="CadastrarPontuacao()">Cadastrar pontuação</button>
+
+        </div>
+    </div>
+    <script src="Quiz.js"></script>
+</body>
+
+</html>
+<script>
+    window.onload = () => {
+        fetch("/pontuacaoQuiz/pontuacao-quiz", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    console.log(resposta);
+                    /* A resposta vemm tudo e não precisa*/
+                    resposta.json().then(function (json) {
+                        console.log(json);
+
+                        for (var index = 0; index < json.length; index++) {
+                            console.log(json[index].Pontuação)
+                        }
+                        /* O json mostra só a resposta que eu quero, que é nome e pontuação 
+                        e o index mostra na posição */
+                    })
+                } else {
+                    console.log("A pontuação não foi encontrada")
+
+                    resposta.text().then(function (texto) {
+                        console.error(texto);
+                    })
+                }
+            });
+    }
+</script>
